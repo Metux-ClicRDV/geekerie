@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+	    <meta charset="utf-8" />
+	    <title>Geekerie</title>
+	</head>
+
+    <%- include('layout/header') -%>
+
+    <body>
+
+   	<% if (locals.name) { %>
+    	<p>Coucou <%= name %> </p>
+    <% } %>
+
+    <!-- vue /login -->
+    <% if (locals.login) { %>
+    	<%- include('layout/loginForm') -%>
+    <% } %>
+
+
+    <% if (locals.post) { %>
+    	<p> tu viens de poster : 
+    	en login:<%= req.body.nomLogin%>
+    	en mdp : <%= req.body.nomPassword %> </p>
+    <% } %>
+
+
+    </body>
+    <%- include('layout/footer') -%>
+</html>
