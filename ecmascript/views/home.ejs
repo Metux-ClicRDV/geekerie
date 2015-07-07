@@ -4,6 +4,8 @@
 	<head>
 	    <meta charset="utf-8" />
 	    <title>Geekerie</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <script src="/js/tutu.js" type="text/javascript"></script>
 	</head>
 
     <%- include('layout/header') -%>
@@ -11,7 +13,8 @@
     <body>
 
    	<% if (locals.name) { %>
-    	<p>Coucou <%= name %> </p>
+    	<h3>Coucou <%= name %> </h3>
+        <p> en mode noob </p>
     <% } %>
 
     <!-- vue /login -->
@@ -20,7 +23,7 @@
     <% } %>
 
 
-    <% if (locals.post) { %>
+    <% if (locals.req) { %>
     	<p> tu viens de poster : 
     	en login:<%= req.body.nomLogin%>
     	en mdp : <%= req.body.nomPassword %> </p>
