@@ -9,7 +9,7 @@ grunt.initConfig({
      },
      dist: {
          files: {
-             "./app/middlewares/vanilla/login.js": "./app/middlewares/ecmascript/login.js" 
+             "./middlewares/vanilla/esCode.js": "./middlewares/ecmascript/esCode.js" 
          }
      }
    },

@@ -1,0 +1,69 @@
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-route.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-resource.js"></script>
+
+  <script src="/spa/js/controllers/controllers.js"></script>
+  <script src="/spa/js/app.js"></script>
+
+  <!-- Custom styles for this template -->
+  <link href="/css/customBS.css" rel="stylesheet">
+  <link href="/spa/css/animate.css" rel="stylesheet">
+
+</head>
+<body>
+
+ <nav class="navbar navbar-inverse navbar-fixed-top" style="position:relative;">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Metux's Geekerie</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/es">Small Prez</a></li>
+          <li><a href="/aboutme">AboutMe</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+<div class="container" style="position:relative;">
+
+    <% if (locals.name) { %>
+      <h3>Coucou <%= name %> </h3>
+        <p> en mode noob </p>
+    <% } %>
+
+    <% if (locals.res && locals.res.esCode) { %>
+        <%- include('prezSpa.ejs') -%>
+    <% } %>
+
+    <% if (locals.aboutme) { %>
+        <h3>About Metux </h3>
+        <p> Clic sur son profil <a href="https://github.com/Metux-ClicRDV"> Github </a>  </p>
+    <% } %>
+
+
+</div>
+
+</body>
+</html>
+
+
+
+

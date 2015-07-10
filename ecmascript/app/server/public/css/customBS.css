@@ -1,0 +1,11 @@
+body{
+
+background-color:grey;
+ background-image:url(/images/es6WallPaper.jpg);
+ background-attachment:fixed;
+ background-repeat:no-repeat;
+ background-position:center center;
+
+} 
+p { color: blue; } 
+h3{ color: white; }

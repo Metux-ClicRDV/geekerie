@@ -5,35 +5,34 @@ app.use(bodyParser());
 
 var PORT = process.env.PORT || 1337;
 
-app.use(express.static(__dirname + '/public/'));
-
+app.use('/js',express.static(__dirname + '/app/server/public/js'));
+app.use('/css',express.static(__dirname + '/app/server/public/css'));
+app.use('/images',express.static(__dirname + '/app/server/public/images'));
+app.use('/spa/js', express.static(__dirname + '/app/client/js'));
+app.use('/partials',express.static(__dirname + '/app/client/partials'));
+app.use('/spa/css', express.static(__dirname + '/app/client/css'));
 
 var name = 'Metux';
-var loginMiddleware = require('./app/middlewares/vanilla/login');
+var ecmascript = require('./app/server/middlewares/vanilla/esCode');
 // view engine setup
-app.set('views', './views');
+app.set('views', './app/server/views');
 app.set('view engine', 'ejs');
 
 // serve an empty page that just loads the browserify bundle
 app.get('/', function(req, res) {
-   res.render('home', {name:name});
+   res.render('customBS', {name:name, es:true});
 });
 
-app.get('/login', function(req, res) {
-      res.render('home', {name:name, login:true});
-   });
+app.get('/es',
+      ecmascript,
+      function(req, res) {
+         res.render('customBS', {res:res});
+      });
 
-app.post('/login',
-   bodyParser.json(),
-   loginMiddleware,
-   function(req, res){
-      res.render('home', {name:name, req:req})
-   }
-);
+app.get('/aboutme', function(req, res) {
+   res.render('customBS', {aboutme:true});
+});
 
-app.get('/ressources', function(req, res){
-   res.send('Ok / ressources');
-})
 
 
 app.listen(PORT);
